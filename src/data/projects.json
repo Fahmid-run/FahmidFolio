@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "title": "NexusAI Dashboard",
+    "description": "A production-grade AI analytics platform with real-time data visualization, RAG-powered insights, and multi-tenant architecture built with Next.js and PostgreSQL.",
+    "tags": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "OpenAI", "Tailwind CSS"],
+    "imageUrl": "",
+    "liveUrl": "#",
+    "githubUrl": "#",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "title": "Velox E-Commerce",
+    "description": "High-performance e-commerce platform with JWT auth, Stripe payments, inventory management, and a blazing fast React frontend powered by Node.js microservices.",
+    "tags": ["React", "Node.js", "Express.js", "MongoDB", "JWT", "Stripe"],
+    "imageUrl": "",
+    "liveUrl": "#",
+    "githubUrl": "#",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "title": "DevCollab",
+    "description": "Real-time collaborative code editor with WebSocket sync, syntax highlighting, live cursors, and GitHub integration — built for distributed engineering teams.",
+    "tags": ["React", "WebSockets", "Node.js", "Redis", "MongoDB", "Tailwind CSS"],
+    "imageUrl": "",
+    "liveUrl": "#",
+    "githubUrl": "#",
+    "featured": true
+  }
+]
