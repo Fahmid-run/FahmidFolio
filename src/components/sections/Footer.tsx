@@ -18,12 +18,12 @@ function LinkedinIcon({ size = 15 }: { size?: number }) {
 }
 
 export function Footer() {
-  const { accentColor, accentLight, isDark } = useTheme()
+  const { accentColor, accentLight } = useTheme()
 
   return (
     <footer
       className="relative"
-      style={{ background: isDark ? '#0a0a0a' : '#f5f5f5' }}
+      style={{ background: '#0a0a0a' }}
     >
       <div
         className="h-px w-full"

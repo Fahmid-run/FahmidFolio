@@ -43,40 +43,36 @@ function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-[2px] z-[9999] origin-left"
+      className="fixed top-0 left-0 right-0 h-0.5 z-9999 origin-left"
       style={{
         scaleX,
         background: `linear-gradient(90deg, ${accentColor}, ${accentLight})`,
         boxShadow: `0 0 8px ${accentColor}`,
       }}
     />
-  )
+  );
 }
 
 function AppBody() {
-  const { mode, accent, isDark } = useTheme()
+  const { accent } = useTheme()
   const rootRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const el = rootRef.current
     if (!el) return
-    el.setAttribute('data-mode', mode)
     el.setAttribute('data-theme', accent)
-    document.documentElement.setAttribute('data-mode', mode)
-    document.body.setAttribute('data-mode', mode)
-  }, [mode, accent])
+  }, [ accent])
 
   return (
     <div
       ref={rootRef}
-      data-mode={mode}
       data-theme={accent}
       className="relative vignette"
       style={{
         minHeight: '100vh',
-        background: isDark ? '#0d0d0d' : '#fafafa',
+        background: '#0d0d0d' ,
         transition: 'background 0.4s ease, color 0.4s ease',
-        color: isDark ? '#ffffff' : '#1a1a1a',
+        color: '#ffffff',
       }}
     >
       <MouseGlow />
@@ -91,7 +87,7 @@ function AppBody() {
       <Footer />
       <FloatingResumeBtn />
     </div>
-  )
+  );
 }
 
 export default function App() {

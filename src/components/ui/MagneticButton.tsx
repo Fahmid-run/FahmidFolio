@@ -35,7 +35,7 @@ export function MagneticButton({ children, variant = 'primary', onClick, href, c
   }
 
   const outlineStyle = {
-    background: 'rgba(255,255,255,0.5)',
+    background: 'transparent',
     border: `1px solid ${accentColor}60`,
     color: accentColor,
     backdropFilter: 'blur(10px)',

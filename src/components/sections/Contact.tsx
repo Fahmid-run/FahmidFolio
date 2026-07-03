@@ -24,7 +24,7 @@ function LinkedinIcon({ size = 16, style }: { size?: number; style?: React.CSSPr
 }
 
 export function Contact() {
-  const { accentColor, accentLight, isDark } = useTheme()
+  const { accentColor, accentLight } = useTheme()
   const [form, setForm] = useState<ContactFormData>({ name: '', subject: '', message: '' })
   const [errors, setErrors] = useState<FormErrors>({})
   const [loading, setLoading] = useState(false)
@@ -76,7 +76,7 @@ export function Contact() {
     <section
       id="contact"
       className="relative py-24 md:py-36 overflow-hidden"
-      style={{ background: isDark ? '#0d0d0d' : '#fafafa' }}
+      style={{ background:  '#0d0d0d'  }}
     >
       <div
         className="absolute bottom-0 right-0 w-[500px] h-[400px] rounded-full blur-[120px] opacity-[0.05] pointer-events-none"
@@ -109,8 +109,8 @@ export function Contact() {
 
             <div className="space-y-4">
               {[
-                { icon: Mail, label: 'Email', value: 'fahmid@example.com' },
-                { icon: MapPin, label: 'Location', value: 'Dhaka, Bangladesh' },
+                { icon: Mail, label: 'Email', value: 'fahmiduddinnabil6064@gmail.com' },
+                { icon: MapPin, label: 'Location', value: 'Noakhali, Bangladesh' },
               ].map(({ icon: Icon, label, value }) => (
                 <motion.div
                   key={label}
@@ -152,7 +152,7 @@ export function Contact() {
             </div>
 
             {/* Availability */}
-            <div
+            {/* <div
               className="glass rounded-2xl p-5"
               style={{ border: `1px solid ${accentColor}20` }}
             >
@@ -166,7 +166,7 @@ export function Contact() {
               <p className="text-xs text-white/40 leading-relaxed">
                 Currently accepting new freelance projects and full-time opportunities.
               </p>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Right — form */}
@@ -207,7 +207,7 @@ export function Contact() {
                   </label>
                   <input
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="Enter Your Name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className={inputClass('name')}
@@ -233,7 +233,7 @@ export function Contact() {
                   </label>
                   <input
                     type="text"
-                    placeholder="Project collaboration"
+                    placeholder="Subject"
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
                     className={inputClass('subject')}
@@ -258,7 +258,7 @@ export function Contact() {
                     Message
                   </label>
                   <textarea
-                    placeholder="Tell me about your project..."
+                    placeholder="Your Message"
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={5}

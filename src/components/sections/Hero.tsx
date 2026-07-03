@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, type Variants } from 'framer-motion'
-import { ArrowRight, MessageCircle, User } from 'lucide-react'
+import { ArrowRight, MessageCircle } from 'lucide-react'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { useTheme } from '@/hooks/useTheme'
 
@@ -23,7 +23,7 @@ const itemVariants: Variants = {
 }
 
 export function Hero() {
-  const { accentColor, accentLight, isDark } = useTheme()
+  const { accentColor, accentLight } = useTheme()
   const [roleIndex, setRoleIndex] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [deleting, setDeleting] = useState(false)
@@ -67,7 +67,7 @@ export function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: isDark ? '#0d0d0d' : '#fafafa' }}
+      style={{ background: '#0d0d0d' }}
     >
       <div className="absolute inset-0 bg-grid opacity-60" />
 
@@ -82,7 +82,6 @@ export function Hero() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-24 pt-36">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
           {/* Left — text */}
           <motion.div
             variants={containerVariants}
@@ -93,37 +92,49 @@ export function Hero() {
             <motion.div variants={itemVariants}>
               <span
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium glass mb-6"
-                style={{ border: `1px solid ${accentColor}40`, color: accentLight }}
+                style={{
+                  border: `1px solid ${accentColor}40`,
+                  color: accentLight,
+                }}
               >
                 <span className="relative flex h-2 w-2">
                   <span
                     className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
                     style={{ background: accentLight }}
                   />
-                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: accentLight }} />
+                  <span
+                    className="relative inline-flex rounded-full h-2 w-2"
+                    style={{ background: accentLight }}
+                  />
                 </span>
                 Available for work
               </span>
             </motion.div>
 
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[0.92] mb-4">
-              <span className={isDark ? 'text-white' : 'text-gray-900'}>Hi, I'm</span>
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[0.92] mb-4"
+            >
+              <span className={'text-white'}>Hi, I'm</span>
               <br />
               <span
                 style={{
-                  background: `linear-gradient(135deg, #ffffff 0%, ${accentLight} 50%, ${accentColor} 100%)`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  filter: `drop-shadow(0 0 30px ${accentColor}40)`,
+                  color: `${accentLight}`,
                 }}
               >
                 Fahmid.
               </span>
             </motion.h1>
 
-            <motion.div variants={itemVariants} className="text-xl md:text-2xl lg:text-3xl font-bold mb-6" style={{ color: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.6)' }}>
-              I'm a <span style={{ color: accentLight }}>
+            <motion.div
+              variants={itemVariants}
+              className="text-xl md:text-2xl lg:text-3xl font-bold mb-6"
+              style={{
+                color: 'rgba(255,255,255,0.6)',
+              }}
+            >
+              I'm a{' '}
+              <span style={{ color: accentLight }}>
                 {displayed}
                 <motion.span
                   animate={{ opacity: [1, 0] }}
@@ -134,17 +145,40 @@ export function Hero() {
               </span>
             </motion.div>
 
-            <motion.p variants={itemVariants} className="text-base md:text-lg leading-relaxed mb-10 max-w-lg" style={{ color: isDark ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.55)' }}>
-              I build fast, scalable, visually polished web applications
-              with modern technologies and clean architecture.
+            <motion.p
+              variants={itemVariants}
+              className="text-base md:text-lg leading-relaxed mb-10 max-w-lg"
+              style={{
+                color: 'rgba(255,255,255,0.45)',
+              }}
+            >
+              I build fast, scalable, visually polished web applications with
+              modern technologies and clean architecture.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <MagneticButton variant="primary" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4"
+            >
+              <MagneticButton
+                variant="primary"
+                onClick={() =>
+                  document
+                    .getElementById('projects')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
                 View My Work
                 <ArrowRight size={15} />
               </MagneticButton>
-              <MagneticButton variant="outline" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              <MagneticButton
+                variant="outline"
+                onClick={() =>
+                  document
+                    .getElementById('contact')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
                 Let's Talk
                 <MessageCircle size={15} />
               </MagneticButton>
@@ -165,7 +199,9 @@ export function Hero() {
             >
               <div
                 className="absolute inset-0 rounded-3xl blur-3xl opacity-30 scale-110"
-                style={{ background: `radial-gradient(circle, ${accentColor}, transparent 70%)` }}
+                style={{
+                  background: `radial-gradient(circle, ${accentColor}, transparent 70%)`,
+                }}
               />
 
               <motion.div
@@ -175,71 +211,73 @@ export function Hero() {
                   boxShadow: `0 0 40px ${accentColor}30, 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)`,
                 }}
                 animate={{ y: [0, -12, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 5,
+                  ease: 'easeInOut',
+                }}
               >
-                {/*
-                  PHOTO PLACEHOLDER — Replace with actual photo:
-                  <img src="/assets/images/hero-photo.jpg" alt="Fahmid" className="w-full h-full object-cover" />
-                */}
-                <div
-                  className="w-full h-full flex flex-col items-center justify-center gap-4"
-                  style={{
-                    background: `linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(13,13,13,0.8) 50%, rgba(167,139,250,0.1) 100%)`,
-                  }}
-                >
-                  <div
-                    className="w-24 h-24 rounded-full flex items-center justify-center"
-                    style={{
-                      background: `linear-gradient(135deg, ${accentColor}30, ${accentLight}20)`,
-                      border: `2px solid ${accentColor}50`,
-                    }}
-                  >
-                    <User size={40} style={{ color: accentLight }} strokeWidth={1.5} />
-                  </div>
-                  <div className="text-center px-6">
-                    <p className="text-xs font-semibold tracking-widest uppercase" style={{ color: accentLight }}>
-                      Photo Placeholder
-                    </p>
-                    <p className="text-xs text-white/30 mt-1">Add hero-photo.jpg</p>
-                  </div>
-                </div>
+                <img
+                  src="/assets/images/hero-photo.png"
+                  alt="Fahmid"
+                  className="mt-15"
+                />
 
                 <div
                   className="absolute bottom-0 left-0 right-0 p-4"
-                  style={{ background: 'linear-gradient(to top, rgba(13,13,13,0.9), transparent)' }}
+                  style={{
+                    background:
+                      'linear-gradient(to top, rgba(13,13,13,0.9), transparent)',
+                  }}
                 >
-                  <p className="text-white font-bold text-sm">Fahmid</p>
-                  <p className="text-xs" style={{ color: accentLight }}>Full Stack Developer · Bangladesh</p>
+                  <p className="text-white font-bold text-md">Fahmid</p>
+                  <p className="text-xs" style={{ color: accentLight }}>
+                    Full Stack Developer · Bangladesh
+                  </p>
                 </div>
               </motion.div>
 
-              <motion.div
+              {/* //Experience Floating Box */}
+              {/* <motion.div
                 className="absolute -bottom-4 -left-6 glass px-4 py-2 rounded-xl"
                 style={{ border: `1px solid ${accentColor}30` }}
                 animate={{ y: [0, -6, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut', delay: 1 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 4,
+                  ease: 'easeInOut',
+                  delay: 1,
+                }}
               >
                 <p className="text-xs text-white/50">Experience</p>
                 <p className="text-sm font-bold text-white">2+ Years</p>
-              </motion.div>
-
+              </motion.div> */}
+              {/* 
               <motion.div
                 className="absolute -top-4 -right-4 glass px-4 py-2 rounded-xl"
                 style={{ border: `1px solid ${accentColor}30` }}
                 animate={{ y: [0, -6, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut', delay: 2 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 4,
+                  ease: 'easeInOut',
+                  delay: 2,
+                }}
               >
                 <p className="text-xs text-white/50">Projects</p>
-                <p className="text-sm font-bold text-white">15+</p>
-              </motion.div>
+                <p className="text-sm font-bold text-white">0</p>
+              </motion.div> */}
             </motion.div>
           </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: `linear-gradient(to bottom, transparent, ${isDark ? '#0d0d0d' : '#fafafa'})` }}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background: `linear-gradient(to bottom, transparent, ${'#0d0d0d'})`,
+        }}
       />
     </section>
-  )
+  );
 }

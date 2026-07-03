@@ -7,13 +7,13 @@ import { useTheme } from '@/hooks/useTheme'
 const projects: Project[] = projectsData
 
 export function Projects() {
-  const { isDark, accentColor } = useTheme()
+  const {  accentColor } = useTheme()
 
   return (
     <section
       id="projects"
       className="relative py-24 md:py-36 overflow-hidden"
-      style={{ background: isDark ? '#0a0a0a' : '#f5f5f5' }}
+      style={{ background:'#0a0a0a'  }}
     >
       {/* Background accent */}
       <div

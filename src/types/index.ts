@@ -9,10 +9,8 @@ export interface Project {
   featured: boolean
 }
 
-export type ThemeMode = 'light' | 'dark'
 export type ThemeAccent = 'violet' | 'yellow' | 'orange'
 
 export interface ThemeState {
-  mode: ThemeMode
   accent: ThemeAccent
 }

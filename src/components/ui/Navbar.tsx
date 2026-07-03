@@ -52,7 +52,9 @@ export function Navbar() {
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
             border: `1px solid ${scrolled ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.05)'}`,
-            boxShadow: scrolled ? `0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px ${accentColor}10` : 'none',
+            boxShadow: scrolled
+              ? `0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px ${accentColor}10`
+              : 'none',
           }}
         >
           {/* Logo */}
@@ -61,25 +63,26 @@ export function Navbar() {
             whileHover={{ scale: 1.05 }}
             className="text-xl font-black tracking-tight"
             style={{
-              background: `linear-gradient(135deg, #fff 40%, ${accentLight})`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              textShadow: 'none',
-              filter: `drop-shadow(0 0 12px ${accentColor}60)`,
+              color: `${accentLight}`,
+              
             }}
           >
-            FM.
+            Fahmid.Me
           </motion.a>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <motion.a
                 key={link.href}
                 href={link.href}
                 className="relative px-4 py-2 text-sm font-medium transition-colors duration-200"
-                style={{ color: active === link.href.slice(1) ? '#fff' : 'rgba(255,255,255,0.5)' }}
+                style={{
+                  color:
+                    active === link.href.slice(1)
+                      ? '#fff'
+                      : 'rgba(255,255,255,0.5)',
+                }}
                 whileHover={{ color: '#fff' }}
               >
                 {link.label}
@@ -87,7 +90,9 @@ export function Navbar() {
                   <motion.span
                     layoutId="nav-underline"
                     className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full"
-                    style={{ background: `linear-gradient(90deg, ${accentColor}, ${accentLight})` }}
+                    style={{
+                      background: `linear-gradient(90deg, ${accentColor}, ${accentLight})`,
+                    }}
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -122,8 +127,11 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] flex flex-col"
-            style={{ background: 'rgba(13,13,13,0.97)', backdropFilter: 'blur(30px)' }}
+            className="fixed inset-0 z-100 flex flex-col"
+            style={{
+              background: 'rgba(13,13,13,0.97)',
+              backdropFilter: 'blur(30px)',
+            }}
           >
             <div className="flex items-center justify-between px-6 py-6">
               <span
@@ -176,5 +184,5 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

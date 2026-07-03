@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Sun, Moon, Palette } from 'lucide-react'
+import {Palette } from 'lucide-react'
 import { useTheme } from '@/hooks/useTheme'
 import type { ThemeAccent } from '@/types'
 
@@ -11,31 +11,12 @@ const accents: { value: ThemeAccent; label: string; color: string }[] = [
 ]
 
 export function ThemeSwitcher() {
-  const { mode, accent, toggleMode, setAccent, accentColor } = useTheme()
+  const { accent, setAccent, accentColor } = useTheme()
   const [showAccents, setShowAccents] = useState(false)
 
   return (
     <div className="flex items-center gap-2">
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={toggleMode}
-        className="w-9 h-9 rounded-full flex items-center justify-center glass transition-colors duration-200"
-        style={{ border: `1px solid ${accentColor}30` }}
-        aria-label="Toggle theme"
-      >
-        <AnimatePresence mode="wait">
-          {mode === 'dark' ? (
-            <motion.div key="sun" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-              <Sun size={14} style={{ color: '#fbbf24' }} />
-            </motion.div>
-          ) : (
-            <motion.div key="moon" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-              <Moon size={14} className="text-white/70" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.button>
+      
 
       <div className="relative">
         <motion.button
