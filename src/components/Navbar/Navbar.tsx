@@ -53,7 +53,7 @@ export function Navbar() {
             </motion.div>
             <div className="hidden sm:block">
               <span className="text-2xl font-display font-bold text-white">
-                Port<span className="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">folio</span>
+                Fahmid<span className="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">Uddin</span>
               </span>
             </div>
           </Link>
