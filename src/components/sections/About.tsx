@@ -1,5 +1,4 @@
 import { motion, type Variants } from 'framer-motion'
-import { User } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { useTheme } from '@/hooks/useTheme'
 
