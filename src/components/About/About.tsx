@@ -48,7 +48,7 @@ export function About() {
                   {/* Image */}
                   <div className="relative w-72 h-80 md:w-80 md:h-96 rounded-3xl overflow-hidden bg-dark-card">
                     <img
-                      src="/public/assets/hero-photo.png"
+                      src="/assets/hero-photo.png"
                       alt="Developer"
                       className="w-full  object-cover about-image"
                     />

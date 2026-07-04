@@ -43,7 +43,7 @@ export const projects: Project[] = [
     fullDescription:
       'A modern Hospital Appointment Management System built with the PERN stack. Patients can browse doctors, book and track appointments, view prescriptions and invoices, while doctors manage availability, appointments, and prescriptions. Administrators oversee doctors, patients, appointments, and platform operations through a dedicated dashboard. The project focuses on scalable architecture, secure authentication, RESTful APIs, and responsive user experience.',
 
-    image: '/public/assets/mediProject.jpg',
+    image: '/assets/mediProject.jpg',
 
     technologies: [
       'React',
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     fullDescription:
       'Buggy is a full-featured SaaS-style issue tracking platform built for development teams to efficiently manage projects, track bugs, and collaborate in real time. It supports multi-project workspaces, role-based permissions, and detailed bug lifecycle management including assignment, prioritization, status updates, and internal notes. The system is designed with scalability and team productivity in mind, offering a clean dashboard experience with filtering, sorting, and responsive UI for all devices.',
 
-    image: '/public/assets/buggy.jpg',
+    image: '/assets/buggy.jpg',
 
     technologies: [
       'React',

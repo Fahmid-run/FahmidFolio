@@ -144,7 +144,7 @@ export function Hero() {
                 <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary-500/20 to-secondary-500/20 border border-primary-500/20 p-1">
                   <div className="w-full h-full rounded-2xl bg-dark-card flex items-center justify-center overflow-hidden">
                     <img
-                      src="/public/assets/about-photo.png"
+                      src="/assets/about-photo.png"
                       alt="Developer workspace"
                       className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
                     />
