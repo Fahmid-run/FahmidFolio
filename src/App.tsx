@@ -1,95 +1,61 @@
-import { useEffect, useRef } from 'react'
-import { motion, useScroll, useSpring, useMotionValue, useTransform } from 'framer-motion'
-import { Navbar } from '@/components/ui/Navbar'
-import { FloatingResumeBtn } from '@/components/ui/FloatingResumeBtn'
-import { Hero } from '@/components/sections/Hero'
-import { About } from '@/components/sections/About'
-import { Projects } from '@/components/sections/Projects'
-import { Contact } from '@/components/sections/Contact'
-import { Footer } from '@/components/sections/Footer'
-import { useTheme } from '@/hooks/useTheme'
+import { HelmetProvider } from 'react-helmet-async';
+import { Toaster } from 'react-hot-toast';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { About } from './components/About';
+import { Skills } from './components/Skills';
+// import { Experience } from './components/Experience';
+// import { Education } from './components/Education';
+import { Projects } from './components/Projects';
+import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
+import { FloatingResume } from './components/FloatingResume';
+import { SEO } from './components/SEO';
 
-function MouseGlow() {
-  const { accentColor } = useTheme()
-  const x = useMotionValue(-200)
-  const y = useMotionValue(-200)
-  const springX = useSpring(x, { stiffness: 120, damping: 30 })
-  const springY = useSpring(y, { stiffness: 120, damping: 30 })
-  const translateX = useTransform(springX, (v) => v - 200)
-  const translateY = useTransform(springY, (v) => v - 200)
-
-  useEffect(() => {
-    const move = (e: MouseEvent) => { x.set(e.clientX); y.set(e.clientY) }
-    window.addEventListener('mousemove', move)
-    return () => window.removeEventListener('mousemove', move)
-  }, [x, y])
-
+function App() {
   return (
-    <motion.div
-      className="fixed pointer-events-none z-0 w-[400px] h-[400px] rounded-full opacity-[0.06]"
-      style={{
-        background: `radial-gradient(circle, ${accentColor}, transparent 70%)`,
-        left: translateX,
-        top: translateY,
-      }}
-    />
-  )
-}
-
-function ScrollProgress() {
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 40 })
-  const { accentColor, accentLight } = useTheme()
-
-  return (
-    <motion.div
-      className="fixed top-0 left-0 right-0 h-0.5 z-9999 origin-left"
-      style={{
-        scaleX,
-        background: `linear-gradient(90deg, ${accentColor}, ${accentLight})`,
-        boxShadow: `0 0 8px ${accentColor}`,
-      }}
-    />
+    <HelmetProvider>
+      <div className="min-h-screen bg-dark text-white overflow-x-hidden">
+        <SEO />
+        <Navbar />
+        <FloatingResume />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          {/* <Experience /> */}
+          {/* <Education /> */}
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: '#1E293B',
+              color: '#F8FAFC',
+              border: '1px solid rgba(139, 92, 246, 0.2)',
+              borderRadius: '12px',
+            },
+            success: {
+              iconTheme: {
+                primary: '#22c55e',
+                secondary: '#F8FAFC',
+              },
+            },
+            error: {
+              iconTheme: {
+                primary: '#ef4444',
+                secondary: '#F8FAFC',
+              },
+            },
+          }}
+        />
+      </div>
+    </HelmetProvider>
   );
 }
 
-function AppBody() {
-  const { accent } = useTheme()
-  const rootRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const el = rootRef.current
-    if (!el) return
-    el.setAttribute('data-theme', accent)
-  }, [ accent])
-
-  return (
-    <div
-      ref={rootRef}
-      data-theme={accent}
-      className="relative vignette"
-      style={{
-        minHeight: '100vh',
-        background: '#0d0d0d' ,
-        transition: 'background 0.4s ease, color 0.4s ease',
-        color: '#ffffff',
-      }}
-    >
-      <MouseGlow />
-      <ScrollProgress />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-      <FloatingResumeBtn />
-    </div>
-  );
-}
-
-export default function App() {
-  return <AppBody />
-}
+export default App;

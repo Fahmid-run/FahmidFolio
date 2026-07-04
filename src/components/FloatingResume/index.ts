@@ -1,0 +1,1 @@
+export { FloatingResume } from './FloatingResume';
