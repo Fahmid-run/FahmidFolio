@@ -24,7 +24,11 @@ Outside of coding, I enjoy learning new technologies, solving programming challe
 
 export const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/Fahmid-run', icon: 'github' },
-  { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'linkedin' },
+  {
+    name: 'LinkedIn',
+    url: 'https://bd.linkedin.com/in/fahmid-uddin-nabil-081530281',
+    icon: 'linkedin',
+  },
   { name: 'Email', url: 'mailto:fahmiduddinnabil6064@gmail.com', icon: 'mail' },
 ];
 
