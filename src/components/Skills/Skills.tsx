@@ -1,16 +1,25 @@
+import { SectionTitle } from "../SectionTitle";
+import { FaNodeJs, FaReact } from "react-icons/fa";
+import { BsJavascript, BsTypescript } from "react-icons/bs";
+import {
+  BiLogoNetlify,
+  BiLogoPostgresql,
+  BiLogoTailwindCss,
+} from "react-icons/bi";
 
-import { SectionTitle } from '../SectionTitle';
-import { FaNodeJs, FaReact } from 'react-icons/fa';
-import { BsJavascript, BsTypescript } from 'react-icons/bs';
-import { BiLogoNetlify, BiLogoPostgresql, BiLogoTailwindCss } from 'react-icons/bi';
-
-import { TbBrandNextjs } from 'react-icons/tb';
-import { SiExpress, SiMongodb, SiPostman, SiPrisma, SiShadcnui } from 'react-icons/si';
-import { DiNpm } from 'react-icons/di';
-import { Github } from 'lucide-react';
-import { RxVercelLogo } from 'react-icons/rx';
-import { VscVscode } from 'react-icons/vsc';
-export  function Skills() {
+import { TbBrandNextjs } from "react-icons/tb";
+import {
+  SiExpress,
+  SiMongodb,
+  SiPostman,
+  SiPrisma,
+  SiShadcnui,
+} from "react-icons/si";
+import { DiNpm } from "react-icons/di";
+import { Github } from "lucide-react";
+import { RxVercelLogo } from "react-icons/rx";
+import { VscVscode } from "react-icons/vsc";
+export function Skills() {
   return (
     <section id="skills" className="py-32 relative overflow-hidden">
       {/* Background */}
@@ -56,7 +65,7 @@ export  function Skills() {
 
               <div className="p-2">
                 <div className="bg-gray-950/60 rounded-xl flex flex-col p-3 items-center justify-between">
-                  <SiShadcnui size={30}  />
+                  <SiShadcnui size={30} />
                 </div>
                 <h2 className="text-xs mt-2 text-center">shadcdn</h2>
               </div>
@@ -98,7 +107,7 @@ export  function Skills() {
             <div className="flex items-center ">
               <div className="p-2">
                 <div className="bg-gray-950/60 rounded-xl flex flex-col p-3 items-center justify-between">
-                  <BiLogoPostgresql size={30} className="text-blue-600" />
+                  <BiLogoPostgresql size={30} className="text-blue-200" />
                 </div>
                 <h2 className="text-xs mt-2 text-center">posgressSQL</h2>
               </div>
@@ -129,14 +138,14 @@ export  function Skills() {
                 <div className="bg-gray-950/60 rounded-xl flex flex-col p-3 items-center justify-between">
                   <SiPostman size={30} className="text-orange-600" />
                 </div>
-                <h2 className="text-xs mt-2 text-center">posgressSQL</h2>
+                <h2 className="text-xs mt-2 text-center">Postman</h2>
               </div>
 
               <div className="p-2">
                 <div className="bg-gray-950/60 rounded-xl flex flex-col p-3 items-center justify-between">
-                  <Github size={30} className="text-green-600" />
+                  <Github size={30} />
                 </div>
-                <h2 className="text-xs mt-2 text-center">mongodb</h2>
+                <h2 className="text-xs mt-2 text-center">GitHub</h2>
               </div>
 
               <div className="p-2">

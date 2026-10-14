@@ -1,18 +1,28 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-scroll';
-import { Menu, X, Code2, Home, User, Wrench, FolderOpen, Mail, FileText } from 'lucide-react';
-import { navItems } from '../../data';
-import { useScrollPosition, useScrollSpy } from '../../hooks';
-import { SCROLL_OFFSET, SCROLL_DURATION } from '../../constants';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-scroll";
+import {
+  Menu,
+  X,
+  Code2,
+  Home,
+  User,
+  Wrench,
+  FolderOpen,
+  Mail,
+  FileText,
+} from "lucide-react";
+import { navItems } from "../../data";
+import { useScrollPosition, useScrollSpy } from "../../hooks";
+import { SCROLL_OFFSET, SCROLL_DURATION } from "../../constants";
 
 const navIcons = {
   home: Home,
   about: User,
-  skills: Wrench,
   // experience: Briefcase,
   // education: GraduationCap,
   projects: FolderOpen,
+  skills: Wrench,
   contact: Mail,
 };
 
@@ -20,7 +30,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const isScrolled = useScrollPosition(50);
   const activeSection = useScrollSpy({
-    sectionIds: navItems.map(item => item.id),
+    sectionIds: navItems.map((item) => item.id),
     offset: -100,
   });
 
@@ -30,8 +40,8 @@ export function Navbar() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-dark/90 backdrop-blur-2xl shadow-2xl shadow-primary-900/20 border-b border-primary-500/20'
-          : 'bg-gradient-to-b from-dark/50 to-transparent'
+          ? "bg-dark/90 backdrop-blur-2xl shadow-2xl shadow-primary-900/20 border-b border-primary-500/20"
+          : "bg-gradient-to-b from-dark/50 to-transparent"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -44,16 +54,12 @@ export function Navbar() {
             offset={SCROLL_OFFSET}
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 via-secondary-500 to-primary-600 flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:shadow-primary-500/50 transition-shadow"
-            >
-              <Code2 className="w-7 h-7 text-white" />
-            </motion.div>
             <div className="hidden sm:block">
               <span className="text-2xl font-display font-bold text-white">
-                Fahmid<span className="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">Uddin</span>
+                Fahmid
+                <span className="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
+                  Nabil
+                </span>
               </span>
             </div>
           </Link>
@@ -78,8 +84,8 @@ export function Navbar() {
                     whileHover={{ y: -2 }}
                     className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
                       isActive
-                        ? 'bg-gradient-to-r from-primary-500/20 to-secondary-500/20 text-primary-400'
-                        : 'text-gray-400 hover:text-white hover:bg-white/5'
+                        ? "bg-gradient-to-r from-primary-500/20 to-secondary-500/20 text-primary-400"
+                        : "text-gray-400 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -88,7 +94,11 @@ export function Navbar() {
                       <motion.div
                         layoutId="activeNav"
                         className="absolute inset-0 rounded-xl border border-primary-500/30 bg-gradient-to-r from-primary-500/5 to-secondary-500/5"
-                        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                        transition={{
+                          type: "spring",
+                          bounce: 0.2,
+                          duration: 0.6,
+                        }}
                       />
                     )}
                   </motion.div>
@@ -99,7 +109,12 @@ export function Navbar() {
 
           {/* Resume Button Desktop */}
           <div className="hidden lg:block">
-            <Link to="contact" smooth duration={SCROLL_DURATION} offset={SCROLL_OFFSET}>
+            <Link
+              to="contact"
+              smooth
+              duration={SCROLL_DURATION}
+              offset={SCROLL_OFFSET}
+            >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -150,7 +165,7 @@ export function Navbar() {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="lg:hidden bg-dark-surface/98 backdrop-blur-2xl border-t border-primary-500/10"
@@ -158,7 +173,8 @@ export function Navbar() {
             <div className="container mx-auto px-4 py-6">
               <div className="grid grid-cols-2 gap-3">
                 {navItems.map((item, index) => {
-                  const Icon = navIcons[item.id as keyof typeof navIcons] || Home;
+                  const Icon =
+                    navIcons[item.id as keyof typeof navIcons] || Home;
                   const isActive = activeSection === item.id;
 
                   return (
@@ -176,8 +192,8 @@ export function Navbar() {
                         onClick={() => setIsOpen(false)}
                         className={`flex items-center gap-3 px-4 py-4 rounded-xl transition-all cursor-pointer ${
                           isActive
-                            ? 'bg-gradient-to-r from-primary-500/20 to-secondary-500/20 text-primary-400 border border-primary-500/30'
-                            : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
+                            ? "bg-gradient-to-r from-primary-500/20 to-secondary-500/20 text-primary-400 border border-primary-500/30"
+                            : "text-gray-300 hover:text-white hover:bg-white/5 border border-transparent"
                         }`}
                       >
                         <Icon className="w-5 h-5" />
