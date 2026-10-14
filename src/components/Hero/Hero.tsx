@@ -1,9 +1,18 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-scroll';
-import { Github, Linkedin, Facebook, Mail, Download, Send, ArrowDown } from 'lucide-react';
-import { Button } from '../Button';
-import { personalInfo, socialLinks } from '../../data';
-import { SCROLL_DURATION, SCROLL_OFFSET } from '../../constants';
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
+import {
+  Github,
+  Linkedin,
+  Facebook,
+  Mail,
+  Download,
+  Send,
+  ArrowDown,
+} from "lucide-react";
+import { Button } from "../Button";
+import { personalInfo, socialLinks } from "../../data";
+import { SCROLL_DURATION, SCROLL_OFFSET } from "../../constants";
+import FloatingParticles from "../FloatingParticles";
 
 const socialIcons = {
   github: Github,
@@ -18,10 +27,14 @@ export function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
+      <FloatingParticles></FloatingParticles>
       {/* Background Gradient Blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-secondary-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-secondary-500/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary-500/5 to-transparent rounded-full" />
       </div>
 
@@ -31,7 +44,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center lg:text-left order-2 lg:order-1"
           >
             {/* Intro Text */}
@@ -51,9 +64,9 @@ export function Hero() {
               transition={{ delay: 0.3 }}
               className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4"
             >
-              {personalInfo.name.split(' ')[0]}{' '}
+              {personalInfo.name.split(" ")[0]}{" "}
               <span className="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-                {personalInfo.name.split(' ')[1]}
+                {personalInfo.name.split(" ")[1]}
               </span>
             </motion.h1>
 
@@ -86,12 +99,17 @@ export function Hero() {
             >
               <Button
                 variant="primary"
-                onClick={() => window.open(personalInfo.resumeUrl, '_blank')}
+                onClick={() => window.open(personalInfo.resumeUrl, "_blank")}
               >
                 <Download className="w-5 h-5" />
                 Download Resume
               </Button>
-              <Link to="contact" smooth duration={SCROLL_DURATION} offset={SCROLL_OFFSET}>
+              <Link
+                to="contact"
+                smooth
+                duration={SCROLL_DURATION}
+                offset={SCROLL_OFFSET}
+              >
                 <Button variant="outline">
                   <Send className="w-5 h-5" />
                   Contact Me
@@ -107,7 +125,8 @@ export function Hero() {
               className="flex gap-4 justify-center lg:justify-start"
             >
               {socialLinks.map((link) => {
-                const Icon = socialIcons[link.icon as keyof typeof socialIcons] || Github;
+                const Icon =
+                  socialIcons[link.icon as keyof typeof socialIcons] || Github;
                 return (
                   <a
                     key={link.name}
@@ -128,7 +147,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="relative order-1 lg:order-2"
           >
             <div className="relative w-full max-w-lg mx-auto">
@@ -138,7 +157,11 @@ export function Hero() {
               {/* Main Image Container */}
               <motion.div
                 animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="relative"
               >
                 <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary-500/20 to-secondary-500/20 border border-primary-500/20 p-1">
@@ -155,12 +178,12 @@ export function Hero() {
               {/* Decorative Elements */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="absolute -top-4 -right-4 w-20 h-20 border border-primary-500/30 rounded-2xl"
               />
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                 className="absolute -bottom-4 -left-4 w-16 h-16 border border-secondary-500/30 rounded-xl"
               />
             </div>

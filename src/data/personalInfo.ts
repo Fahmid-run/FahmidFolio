@@ -4,18 +4,14 @@ export const personalInfo: PersonalInfo = {
   name: "Fahmid Nabil",
   title: "Full Stack Developer",
   tagline:
-    "Building modern web experiences with clean code and creative solutions",
-  bio: `I am a 20-year-old Full Stack Web Developer from Bangladesh with a strong passion for building modern, scalable, and user-friendly web applications.
+    "Building modern web applications with PERN, Prisma, and a problem-solving mindset.",
+  bio: `Hi, I'm Fahmid Uddin Nabil, a Full-Stack Web Developer passionate about building modern, responsive, and user-friendly web applications.
 
-I enjoy turning ideas into real products while continuously improving my skills through hands-on projects.
+I work with the PERN stack (PostgreSQL, Express.js, React.js, and Node.js), along with Prisma ORM, to build full-stack web applications with reliable backends and well-structured databases. I enjoy turning ideas into functional web experiences and exploring how different technologies work together to solve real-world problems.
 
-My primary focus is creating responsive frontend interfaces and robust backend systems using modern JavaScript technologies.
+I'm a continuous learner who believes in improving through hands-on projects, experimentation, and consistent practice. Currently, I'm focused on strengthening my problem-solving skills, data structures and algorithms, and software engineering fundamentals** while expanding my knowledge of full-stack development.
 
-I have experience working with HTML, CSS, Tailwind CSS, DaisyUI, JavaScript, TypeScript, React, Next.js, Node.js, Express.js, MongoDB, PostgreSQL, Prisma ORM, and Postman.
-
-Currently, I am focused on building production-ready projects, improving software architecture skills, and preparing for professional software engineering opportunities.
-
-Outside of coding, I enjoy learning new technologies, solving programming challenges, and exploring UI/UX design.`,
+I'm always eager to learn, take on new challenges, and build applications that are useful, maintainable, and impactful.`,
   location: "Bangladesh",
   age: 20,
   languages: ["English", "Bangla"],
